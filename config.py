@@ -3,12 +3,11 @@ class Config:
     '''
     General configuration parent class
     '''
-    # SECRET_KEY = os.environ.get('SECRET_KEY') 
-    # SQLALCHEMY_TRACK_MODIFICATIONS = False
-    # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://peter:abcdef@localhost/watchlist'
-    # UPLOADS_DEFAULT_DEST ='app/static'
-    # SIMPLEMDE_JS_IIFE = True
-    # SIMPLEMDE_USE_CDN = True
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://peter:abcdef@localhost/watchlist'
+    UPLOADS_DEFAULT_DEST ='app/static'
+    SIMPLEMDE_JS_IIFE = True
+    SIMPLEMDE_USE_CDN = True
     @staticmethod
     def init_app(app):
         pass
