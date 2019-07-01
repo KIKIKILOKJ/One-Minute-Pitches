@@ -28,16 +28,16 @@ def categories():
 
     return render_template('categories.html', pitches = pitches)
 
-# @main.route('/sports/')
-# def sports():
+@main.route('/sports/')
+def sports():
 
-#     '''
-#     View categories page function that returns the sports category details page and its data
-#     '''
+    '''
+    View categories page function that returns the sports category details page and its data
+    '''
 
-#     pitchSports = Pitch.query.filter_by(category ="Sports").all()
+    pitchSports = Pitch.query.filter_by(category ="Sports").all()
 
-#     return render_template('sports.html', pitchsPorts = pitchSports)
+    return render_template('sports.html', pitchsPorts = pitchSports)
 
 # @main.route('/software/')
 # def software():
