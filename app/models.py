@@ -46,3 +46,29 @@ class User(UserMixin,db.Model):
     
     def __repr__(self):
         return f'User {self.username}'
+    
+class Pitch(db.Model):
+    
+    __tablename__ = 'pitches'
+
+    id = db.Column(db.Integer,primary_key = True)
+    title = db.Column(db.String)
+    category = db.Column(db.String)
+    pitch = db.Column(db.String)
+    posted = db.Column(db.DateTime,default=datetime.utcnow)
+    user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
+    
+    def save_pitch(self):
+        db.session.add(self)
+        db.session.commit()
+
+    @classmethod
+    def get_pitches(cls,pitch_category):
+        pitches = Pitch.query.filter_by(pitch_category = pitch_category).all()
+        return pitches
+
+    @classmethod
+    def get_pitch(cls,id):
+        pitch = Pitch.query.filter_by(id=id).first()
+
+        return pitch 
