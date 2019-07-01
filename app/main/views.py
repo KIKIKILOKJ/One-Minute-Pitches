@@ -17,16 +17,16 @@ def index():
     return render_template('index.html',title = title)
 
 
-# @main.route('/categories/')
-# def categories():
+@main.route('/categories/')
+def categories():
 
-#     '''
-#     View categories page function that returns the categories page and its data
-#     '''
+    '''
+    View categories page function that returns the categories page and its data
+    '''
 
-#     pitches = Pitch.get_pitches('categories')
+    pitches = Pitch.get_pitches('categories')
 
-#     return render_template('categories.html', pitches = pitches)
+    return render_template('categories.html', pitches = pitches)
 
 # @main.route('/sports/')
 # def sports():
