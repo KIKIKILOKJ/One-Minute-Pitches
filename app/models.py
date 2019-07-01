@@ -23,3 +23,26 @@ class User(UserMixin,db.Model):
     def save_comment(self):
         db.session.add(self)
         db.session.commit()
+
+
+# @classmethod
+#     def get_comments(cls,id):
+#         comments = Comment.query.filter_by(pitch_id=id).all()
+        
+#         return comments
+   
+    @property
+    def password(self):
+        raise AttributeError('You cannot read the password attribute')
+    
+    @password.setter
+    def password(self, password):
+        self.password_hash = generate_password_hash(password)
+    
+    def verify_password(self,password):
+        print(self.password_hash)
+        print(password)
+        return check_password_hash(self.password_hash,password)
+    
+    def __repr__(self):
+        return f'User {self.username}'
