@@ -121,23 +121,23 @@ def single_pitch(id):
     return render_template('pitch.html',pitch = pitch,format_pitch=format_pitch)
 
 
-# @main.route("/pitch/new/comment/<int:id>",methods=["GET","POST"])
-# @login_required
-# def comment(id):
+@main.route("/pitch/new/comment/<int:id>",methods=["GET","POST"])
+@login_required
+def comment(id):
     
-#     pitch = Pitch.query.get(id)
-#     commentForm = CommentsForm()
+    pitch = Pitch.query.get(id)
+    commentForm = CommentsForm()
 
-#     if id is None:
-#         abort(404)
+    if id is None:
+        abort(404)
 
-#     if commentForm.validate_on_submit():
-#         comments = commentForm.comment.data
-#         new_comment = Comment(comments = comments, pitch_id = id, user = current_user)
+    if commentForm.validate_on_submit():
+        comments = commentForm.comment.data
+        new_comment = Comment(comments = comments, pitch_id = id, user = current_user)
 
-#         new_comment.save_comment()
-#         return redirect(url_for('.comment',id=id))
+        new_comment.save_comment()
+        return redirect(url_for('.comment',id=id))
 
-#     all_comments = Comment.query.filter_by(pitch_id=id).all()
+    all_comments = Comment.query.filter_by(pitch_id=id).all()
 
-#     return render_template("new_comment.html",pitch = pitch, id=id,comment_form = commentForm, all_comments = all_comments)
+    return render_template("new_comment.html",pitch = pitch, id=id,comment_form = commentForm, all_comments = all_comments)
