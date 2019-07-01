@@ -39,16 +39,16 @@ def sports():
 
     return render_template('sports.html', pitchsPorts = pitchSports)
 
-# @main.route('/software/')
-# def software():
+@main.route('/software/')
+def software():
 
-#     '''
-#     View categories page function that returns the software category details page and its data
-#     '''
+    '''
+    View categories page function that returns the software category details page and its data
+    '''
 
-#     pitchSoft = Pitch.query.filter_by(category ="Software").all()
+    pitchSoft = Pitch.query.filter_by(category ="Software").all()
 
-#     return render_template('software.html', pitchSoft = pitchSoft)
+    return render_template('software.html', pitchSoft = pitchSoft)
 
 # @main.route('/pitch/new', methods = ['GET','POST'])
 # @login_required
