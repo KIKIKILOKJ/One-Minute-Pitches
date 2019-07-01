@@ -50,24 +50,24 @@ def software():
 
     return render_template('software.html', pitchSoft = pitchSoft)
 
-# @main.route('/pitch/new', methods = ['GET','POST'])
-# @login_required
-# def new_pitch():
-#     form = PitchForm()
-#     new_pitch = None
+@main.route('/pitch/new', methods = ['GET','POST'])
+@login_required
+def new_pitch():
+    form = PitchForm()
+    new_pitch = None
 
-#     if form.validate_on_submit():
-#         category = form.category.data
-#         title = form.title.data
-#         pitch = form.pitch.data
+    if form.validate_on_submit():
+        category = form.category.data
+        title = form.title.data
+        pitch = form.pitch.data
         
-#         new_pitch = Pitch(category = category, pitch = pitch, title = title, user = current_user)
+        new_pitch = Pitch(category = category, pitch = pitch, title = title, user = current_user)
 
-#         new_pitch.save_pitch()
+        new_pitch.save_pitch()
 
-#         return redirect(url_for('.index'))
+        return redirect(url_for('.index'))
 
-#     return render_template('new_pitch.html', pitch_form = form, new_pitch=new_pitch)
+    return render_template('new_pitch.html', pitch_form = form, new_pitch=new_pitch)
 
 
 
