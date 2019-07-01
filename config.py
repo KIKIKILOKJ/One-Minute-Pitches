@@ -4,9 +4,9 @@ class Config:
     General configuration parent class
     '''
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://peter:abcdef@localhost/watchlist'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://peter:abcdef@localhost/pitches'
     UPLOADS_DEFAULT_DEST ='app/static'
-    SIMPLEMDE_JS_IIFE = True
+    SIMPLEMDE_JS_LIFE = True
     SIMPLEMDE_USE_CDN = True
     @staticmethod
     def init_app(app):
@@ -32,7 +32,7 @@ class TestConfig(Config):
     pass
     
 class DevConfig(Config):
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://peter:abcdef@localhost/watchlist'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://peter:abcdef@localhost/pitches'
     DEBUG = True
 
 
