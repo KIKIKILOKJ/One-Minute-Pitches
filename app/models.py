@@ -72,3 +72,17 @@ class Pitch(db.Model):
         pitch = Pitch.query.filter_by(id=id).first()
 
         return pitch 
+    
+class Comment(db.Model):
+    
+    __tablename__ = 'comments'
+
+    id = db.Column(db.Integer,primary_key = True)
+    comments= db.Column(db.String)
+    pitch_id = db.Column(db.Integer)
+    posted=db.Column(db.DateTime,default=datetime.utcnow)
+    user_id=db.Column(db.Integer,db.ForeignKey("users.id"))
+    
+    def save_comment(self):
+        db.session.add(self)
+        db.session.commit()
