@@ -1,44 +1,28 @@
-{% macro displayCategories(categories_list) %}
-
-    {% for category in categories_list %}
-        <li>{{ category.title}}</li>
-    {% endfor %}
-
-{% endmacro %}
-
-{% macro displayPitches(pitches_list) %}
-
-    {% for pitch in pitch_list %}
-    <div class="thumbnail">
-        <div class="card" style="width: 40rem;">
-            <div class="card-body">
-                <h4>Author</h4>
-                <p >{{pitch.user.username}}</p>
-                <h2> <a href="{{url_for('main.single_pitch',id=pitch.id)}}"></a>{{pitch.pitch}}</h2>
-            </div>
-        
+{% macro displayCategoryList(category_list) %}
+    {% for category in category_list%}
+        <div>
+          <a href="{{url_for('main.category',id=category.id)}}"><p>{{category.name|capitalize}}</p></a>
         </div>
-    </div>
-    {% endfor %}
 
+    {% endfor %}
 {% endmacro %}
 
-{% macro displayComments(all_comments) %}
-{% if all_comments %}
-    {% for comment in all_comments %}
-    <div class="thumbnail" style="border:2px solid black;border-radius: 5px;box-shadow: 10px 20px;">
-        
-            <div class="card" style="width: 40rem;">
-                <div class="card-body"> 
-                    <p class="card-text">{{comment.comments|capitalize}}</p>
-                    <p>Posted by:{{comment.user.username}}</p>
-                    <p> Posted on: {{comment.posted}} </p>
-                </div>
-            </div>
-        
+{% macro displayPitches(pitch_list) %}
+  {% for pitches in pitch_list %}
+  <div class="col-md-12">
+    <div class="well">
+      <div class="row">
+        <p>{{pitches.name|upper}}</p></a>
+        <div class="col-md-10 col-sm-12">
+            <h3>{{pitches.content}}</h3>
+            
+            
+      </div>
     </div>
-    {% endfor %}
-{% else %}
-    <h3 class ="text-center" style="font-size:1000%"> This Pitch has no Comment </h3>
-{% endif %}
+   </div>
+
+    </HISTORY> 
+
+  </div>
+  {% endfor %}
 {% endmacro %}

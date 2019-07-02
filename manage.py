@@ -1,30 +1,29 @@
-#!/usr/bin/env python
-from app import create_app,db
-from flask_script import Manager,Server
-from  flask_migrate import Migrate, MigrateCommand
-from app.models import User,Pitch,Comment
+from app import create_app, db
+from flask_script import Manager, Server
+from app.models import User, Pitch, Category, Vote, Comment
+from flask_migrate import Migrate, MigrateCommand
 
 # Creating app instance
 app = create_app('development')
-app = create_app('test')
 
 manager = Manager(app)
-manager.add_command('server',Server)
+migrate = Migrate(app, db)
 
-migrate = Migrate(app,db)
-manager.add_command('db',MigrateCommand)
+manager.add_command('db', MigrateCommand)
+
+manager.add_command('server',Server)
 @manager.command
 def test():
     """Run the unit tests."""
     import unittest
-    tests = unittest.TestLoader().discover('tests')
+    tests = unittest.TestLoader().discover('test')
     unittest.TextTestRunner(verbosity=2).run(tests)
 
 @manager.shell
 def make_shell_context():
-    return dict(app = app,db = db,User = User,Pitch = Pitch,Comment =Comment)
+    return dict(app = app,db = db,User = User, Pitch = Pitch, Category = Category, Vote = Vote, Comment = Comment)
 
 
 if __name__ == '__main__':
-    app.secret_key = 'qwerty'
+    app.secret_key = 'abcdef'
     manager.run()
