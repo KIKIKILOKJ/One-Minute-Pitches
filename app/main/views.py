@@ -35,7 +35,7 @@ def sports():
     View categories page function that returns the sports category details page and its data
     '''
 
-    pitchSports = pitch.query.filter_by(category ="Sports").all()
+    pitchSports = Pitch.query.filter_by(category ="Sports").all()
 
     return render_template('sports.html', pitchsPorts = pitchSports)
 
@@ -46,7 +46,7 @@ def software():
     View categories page function that returns the software category details page and its data
     '''
 
-    pitchSoft = pitch.query.filter_by(category ="Software").all()
+    pitchSoft = Pitch.query.filter_by(category ="Software").all()
 
     return render_template('software.html', pitchSoft = pitchSoft)
 
@@ -72,6 +72,7 @@ def new_pitch():
 
 
 @main.route('/user/<uname>')
+@login_required
 def profile(uname):
     user = User.query.filter_by(username = uname).first()
     pitches = Pitch.query.filter_by(user_id = user.id)

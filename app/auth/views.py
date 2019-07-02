@@ -6,20 +6,6 @@ from .. import db
 from . import auth
 from ..email import mail_message
 
-@auth.route('/register',methods = ["GET","POST"])
-def register():
-    form = RegistrationForm()
-    if form.validate_on_submit():
-        user = User(email = form.email.data, username = form.username.data,password = form.password.data)
-        db.session.add(user)
-        db.session.commit()
-        
-        mail_message("Welcome to watchlist","email/welcome",user.email,user=user)
-        
-        return redirect(url_for('main.index'))
-        title = "New Account"
-    return render_template('auth/register.html',registration_form = form)
-
 @auth.route('/login',methods=['GET','POST'])
 def login():
     login_form = LoginForm()
@@ -31,8 +17,24 @@ def login():
 
         flash('Invalid username or Password')
 
-    title = "watchlist login"
+    title = "pitches login"
     return render_template('auth/login.html',login_form = login_form,title=title)
+
+@auth.route('/register',methods = ["GET","POST"])
+def register():
+    form = RegistrationForm()
+    if form.validate_on_submit():
+        user = User(email = form.email.data, username = form.username.data,password = form.password.data)
+        db.session.add(user)
+        db.session.commit()
+        
+        mail_message("Welcome to pitches","email/welcome",user.email,user=user)
+        
+        return redirect(url_for('main.index'))
+        title = "New Account"
+    return render_template('auth/register.html',registration_form = form)
+
+
 
 @auth.route('/logout')
 @login_required

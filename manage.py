@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 from app import create_app,db
 from flask_script import Manager,Server
 from  flask_migrate import Migrate, MigrateCommand
@@ -25,4 +26,5 @@ def make_shell_context():
 
 
 if __name__ == '__main__':
+    app.secret_key = 'qwerty'
     manager.run()
