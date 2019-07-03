@@ -5,7 +5,6 @@ class Config:
     UPLOADED_PHOTOS_DEST ='app/static/photos'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
-
 class ProdConfig(Config):
     SQLALCHEMY_DATABASE_URI =os.environ.get('DATABASE_URL')
 
