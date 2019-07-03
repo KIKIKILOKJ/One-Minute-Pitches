@@ -3,7 +3,7 @@
 # Description
 This an application that allows the users to submit pitches that can make or break them in a given time of one minute.
 
-#SetUp Instructions
+# SetUp Instructions
 *A web browser
 *Clone this repo
 *cd pitches
@@ -11,7 +11,7 @@ This an application that allows the users to submit pitches that can make or bre
 *Install various dependancies.
 *Then run the app on the browser
 
-#Technologies Used
+# Technologies Used
 *python
 *bootstrap
 
