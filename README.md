@@ -1,5 +1,8 @@
 # One-Minute-Pitches
 
+# Author
+(PETER KINYANJUI)
+
 # Description
 This an application that allows the users to submit pitches that can make or break them in a given time of one minute.
 
@@ -12,8 +15,8 @@ This an application that allows the users to submit pitches that can make or bre
 * Then run the app on the browser
 
 # Technologies Used
-*python
-*bootstrap
+* python
+* bootstrap
 
 # BDD
 |BEHAVIOUR|INPUT|OUTPUT|
@@ -23,5 +26,14 @@ This an application that allows the users to submit pitches that can make or bre
 |upvote|Click on thumbs up|increase in votes by one|
 |downvote|click on thumbsdown|decrease in votes by one|
 
+# Known Bugs
+* No Known bugs
+
+# Live Site
+(https://pitches12345.herokuapp.com/)
+
 # Contanct Info
 Incase of any challenges encountered,contact me on (petermax2004@gmail.com)
+
+# Licence
+[mit](LICENSE)
