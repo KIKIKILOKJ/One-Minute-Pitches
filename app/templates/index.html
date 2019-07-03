@@ -11,9 +11,17 @@
 {% block content %}
 
 <div class="container">
-        <p text-center>Click the button below to post your pitch</p>
-        <h3 class="add-category"><a class="btn btn-primary" href="/add/category" style="background-color:blue; float:left;"><span aria-hidden="true"> NEW CATEGORY </span></a></h3>
+    <p text-center>Click the button below to post your pitch</p>
+    <h3 class="add-category"><a class="btn btn-primary" href="/add/category" style="background-color:blue; float:left;"><span aria-hidden="true"> NEW PITCH </span></a></h3>
 </div>
 
+{% if category %}
+<h1>Pitches available</h1>
+{% for category in category %}
+<h1>{{category.name}} </h1>
+{% endfor%}
+{% else%}
+<h1>No Pitches available</h1>
+{% endif%}
 
 {% endblock  %}

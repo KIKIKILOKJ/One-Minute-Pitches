@@ -13,10 +13,11 @@ def index():
     '''
 
    
-    #category = Category.get_categories()
+    category = Category.query.all()
+    # pitch = Pitch.query.all()
 
 
-    return render_template('index.html')
+    return render_template('index.html', category=category)
 
 @main.route('/add/category', methods=['GET','POST'])
 @login_required
