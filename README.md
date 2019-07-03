@@ -4,12 +4,12 @@
 This an application that allows the users to submit pitches that can make or break them in a given time of one minute.
 
 # SetUp Instructions
-*A web browser
-*Clone this repo
-*cd pitches
-*Open the app on vd studio code or atom
-*Install various dependancies.
-*Then run the app on the browser
+* A web browser
+* Clone this repo
+* cd pitches
+* Open the app on vd studio code or atom
+* Install various dependancies.
+* Then run the app on the browser
 
 # Technologies Used
 *python
